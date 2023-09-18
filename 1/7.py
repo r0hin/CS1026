@@ -9,3 +9,8 @@ print("*" + " " * numspaces + "*")
 print("* " + inputtext + " *")
 print("*" + " " * numspaces + "*")
 print("*" * numdots)
+
+# template literals example
+test = "world";
+print(f"Hello {test}");
+print("hello %s" % test)
