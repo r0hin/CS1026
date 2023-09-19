@@ -7,8 +7,11 @@
   Sept 18, 2023
 '''
 
+# Starting message
+print("Project One <01> - Part A : Fibonacci Sequence")
+
 # Get the ending index integer
-ending = int(input("Sequence ends at index: "))
+ending = int(input("Sequence ends at: "))
 
 index = 0 # Counts index
 a = 0 # Counts first number
@@ -21,5 +24,6 @@ while index <= ending:
   b = c # Set b to sum of previous a and b
   index += 1 # Increment index
 
-# END: Assignment 01 Project 01 - Part A
+# Ending Message
+print("\nEND: Project One <01> - Part A")
 print("Rohin Arya rarya4 251371185")

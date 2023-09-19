@@ -1,21 +1,24 @@
 ''''
   CS1026a 2023
-  Assignment 01 Project 0B - Part C
+  Assignment 01 Project 01 - Part C
   Rohin Arya
   251371185
   rarya4
   Sept 18, 2023
 '''
 
+# Starting message
+print("Project One <01> - Part C : The Moore the Merrier")
+
 # Get starting number
-start_num = input("The starting number of transistors: ") or "17"
+start_num = input("Starting Number of transistors: ") or "17"
 # Get starting year
-start_year = input("The year to start calculations from: ") or "1957"
+start_year = input("Starting Year: ") or "1957"
 # Get number of years
-num_years = input("The number of years to calculate for: ") or "30"
+num_years = input("Total Number of Years: ") or "30"
 
 # Print the table header
-print("YEAR : TRANSISTORS : FLOPS")
+print("\nYEAR : TRANSISTORS : FLOPS:")
 
 # Variable to decide whether to skip current year or not
 skip_year = False # Skip every second year
@@ -37,7 +40,7 @@ for year in range(int(start_year), int(start_year) + int(num_years) + 1):
   # Calculate the number of flops
   flops = transistors * 50
 
-  label = "" # The label for the number
+  label = "FLOPS" # The label for the number
   # Use copied variable number to preserve original number
   num = flops
   # Get kilo, mega, giga, tera, peta, exa, etc
@@ -67,7 +70,8 @@ for year in range(int(start_year), int(start_year) + int(num_years) + 1):
   commad_number = format(flops, ",d")
 
   # Print the table row
-  print(str(year) + " : " + str(format(transistors, ",d")) + " : " + str(num) + " " + label + " " + str(commad_number))
+  print(str(year) + " " + str(format(transistors, ",d")) + " " + str(num) + " " + label + " " + str(commad_number))
 
 # END: Assignment 01 Project 0B - Part C
+print("\nEND: Project One <01> - Part C")
 print("Rohin Arya rarya4 251371185")
