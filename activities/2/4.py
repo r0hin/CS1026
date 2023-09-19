@@ -1,7 +1,4 @@
-grade_one = input("Enter first grade: ")
-grade_two = input("Enter second grade: ")
+firstname = input("What is your first name? ")
+lastname = input("What is your last name? ")
 
-if (grade_one > grade_two):
-  print("Grades in ascending order: ", grade_two, grade_one)
-else:
-  print("Grades in ascending order: ", grade_one, grade_two)
+print("Your initials are " + firstname[0].capitalize() + lastname[0].capitalize() + ".")

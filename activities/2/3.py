@@ -1,8 +1,7 @@
-fullname = input("Enter your full name: ")
 
-# Check if contains a space
-if (not " " in fullname):
-  print("Invalid")
+# Prompt user for input
+firstname = input("What is your first name? ")
+lastname = input("What is your last name? ")
+food = input("What is your favorite food? ")
 
-print("First letter: ", fullname[0])
-print("Last letter: ", fullname[-1])
+print("Hello, " + firstname + " " + lastname + ".\nI also like " + food + ".")

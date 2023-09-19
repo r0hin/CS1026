@@ -1,9 +1,12 @@
-drink = input("Enter your drink: ")
-if (drink == "coffee"):
-  age = int(input("Enter your age: "))
-  if (age > 9):
-    print("Coffee is served.")
-  else:
-    print("You are not eligible to drink coffee.")
-else:
-  print(drink.capitalize(), "is served.")
+import math
+
+rectwidth = input("What is the width of the rectangle? ")
+rectheight = input("What is the height of the rectangle? ")
+print("The area of the rectangle is " + str(int(rectwidth) * int(rectheight)) + ".");
+
+trianglewidth = input("What is the width of the triangle? ")
+triangleheight = input("What is the height of the triangle? ")
+print("The area of the triangle is " + str(int(trianglewidth) * int(triangleheight) / 2) + ".");
+
+circleradius = input("What is the radius of the circle? ")
+print("The area of the circle is " + str(int(circleradius) * int(circleradius) * math.pi) + ".");

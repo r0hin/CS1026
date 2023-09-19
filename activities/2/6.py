@@ -1,14 +1,16 @@
-age = input("Enter your age: ")
-account = input("Do you have an account? (y/n): ")
+# Happiness improver
 
-if (account == "y"):
-  if (age >= 18):
-    print("You have access to all features.")
-  else:
-    print("You have limited access to some features.")
-else:
-  if (age >= 18):
-    print("You can create an account to have all features.")
-  else:
-    print("You can create an account to have limited access to some features.")
-    
+# Sad -> happy, bad -> good, cry -> sing, failed -> passed
+
+inputtext = input("Input your text: ")
+
+inputtext = inputtext.replace("Sad", "Happy")
+inputtext = inputtext.replace("sad", "happy")
+inputtext = inputtext.replace("Bad", "Good")
+inputtext = inputtext.replace("bad", "good")
+inputtext = inputtext.replace("Cry", "Sing")
+inputtext = inputtext.replace("cry", "sing")
+inputtext = inputtext.replace("Failed", "Passed")
+inputtext = inputtext.replace("failed", "passed")
+
+print(inputtext)
