@@ -1,10 +1,10 @@
 """
   CS1026a 2023
-  Assignment 02 Project 01
+  Assignment 02
   Rohin Arya
   251371185
   rarya4
-  Oct 10, 2023
+  Oct 12, 2023
 """
 
 # initial list of books
