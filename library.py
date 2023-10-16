@@ -33,6 +33,8 @@ def isValidISBN(isbn):
         return False
     if not isbn.isnumeric(): # ISBN must be numeric.
         return False
+    
+    # Chech matching the required sum of digits
     checksum = 0
     for i in range(0, len(isbn)):
         if i % 2 == 1: # Odd index
