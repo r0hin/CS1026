@@ -159,7 +159,7 @@ def handleChoiceThree():
                 print("No book is found in the borrowed books list!")
             break
     else: # If book is not found
-        print("No book is found in the borrowed books list!")
+        print("No book is found!")
 
 # Main function
 def start():
