@@ -7,6 +7,7 @@
   Nov 7, 2023
 """
 
+# This function reads the keywords from the file and returns a dictionary
 def read_keywords(keyword_file_name):
     word_dictionary = {}
 
@@ -14,7 +15,7 @@ def read_keywords(keyword_file_name):
     try:
         keyword_file = open(keyword_file_name, "r")
         for line in keyword_file:
-            words = line.split("\t")
+            words = line.split("\t") # Split by tab
             word_dictionary[words[0]] = int(words[1])
     except IOError:
         print("Could not open the file " + keyword_file_name + "!")
@@ -22,33 +23,37 @@ def read_keywords(keyword_file_name):
 
     return word_dictionary;
 
+# This function reads the tweets from the file and returns a list of dictionaries
 def clean_tweet_text(tweet_text):
     lowercase = tweet_text.lower()
-    whitelist = set('abcdefghijklmnopqrstuvwxyz ')
+    whitelist = set('abcdefghijklmnopqrstuvwxyz ') # Only allow lowercase letters and spaces
     clean_tweet = ''.join(filter(whitelist.__contains__, lowercase))
 
     return clean_tweet;
 
+# This function calculates the sentiment of a tweet based on the keywords
 def calc_sentiment(tweet_text, keyword_dict):
-    sumSentiment = 0
-    words = tweet_text.split(" ")
+    sum_sentiment = 0
+    words = tweet_text.split(" ") # Split by space
 
     for word in words:
         if word in keyword_dict:
-            sumSentiment += keyword_dict[word]
+            sum_sentiment += keyword_dict[word] # Add the value of the word to the sum
 
-    return sumSentiment;
+    return sum_sentiment;
 
+# This function classifies the sentiment as positive, negative, or neutral
 def classify(score):
     if score > 0:
         return "positive"
     elif score < 0:
         return "negative"
-    return "neutral";
+    return "neutral"; # If score is 0
 
+# This function reads the tweets from the file and returns a list of dictionaries
 def read_tweets(tweet_file_name):
     tweetlist = []
-
+    # Read from tweets.tsv
     try:
         tweet_file = open(tweet_file_name, "r")
         for line in tweet_file:
@@ -66,10 +71,11 @@ def read_tweets(tweet_file_name):
                 "user": line.split(",")[2]
             }
 
+            # If the lat and lon are not NULL, add them to the dictionary
             if (line.split(",")[9] != "NULL"):
-                tweet["lat"] = line.split(",")[9]
-            if (line.split(",")[10] != "NULL"):
-                tweet["lon"] = line.split(",")[10].strip("\n")
+                tweet["lat"] = float(line.split(",")[9])
+            if (line.split(",")[10] != "NULL" and line.split(",")[10] != "NULL\n"):
+                tweet["lon"] = float(line.split(",")[10].strip("\n")) # Remove the newline character
     
             tweetlist.append(tweet)
     except IOError:
@@ -78,6 +84,7 @@ def read_tweets(tweet_file_name):
     
     return tweetlist;
 
+# This function calculates the sentiment of a tweet based on the keywords
 def make_report(tweet_list, keyword_dict):
     num_tweets = 0
     num_positive = 0
@@ -90,6 +97,7 @@ def make_report(tweet_list, keyword_dict):
     sum_retweet_sentiment = 0
     countries_average_sentiments = {}
 
+    # Calculate the sentiment of each tweet
     for tweet in tweet_list:
         num_tweets += 1
         sentiment = calc_sentiment(tweet["text"], keyword_dict)
@@ -145,8 +153,10 @@ def make_report(tweet_list, keyword_dict):
 
     return report;
 
+# This function writes the report to the output file
 def write_report(report, output_file):
     writable = open(output_file, "w")
+    # Write to output.txt
     writable.write("Average sentiment of all tweets: " + str(report["avg_sentiment"]) + "\n")
     writable.write("Total number of tweets: " + str(report["num_tweets"]) + "\n")
     writable.write("Number of positive tweets: " + str(report["num_positive"]) + "\n")
