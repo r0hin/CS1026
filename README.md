@@ -1,2 +1,2 @@
-# UWO CS1026A 2023 Course Files
+# cs1026
 See branches for categories
